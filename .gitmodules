@@ -1,9 +1,7 @@
-[submodule "web/git/cobradb"]
-	path = web/git/cobradb
-	url = https://github.com/SBRG/cobradb.git
 [submodule "web/git/bigg_models"]
 	path = web/git/bigg_models
 	url = https://github.com/SBRG/bigg_models.git
 [submodule "web/git/bigg_models_data"]
 	path = web/git/bigg_models_data
 	url = https://github.com/SBRG/bigg_models_data.git
+
