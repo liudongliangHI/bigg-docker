@@ -22,6 +22,7 @@ RUN pip install -r requirements.txt
 COPY ./git /src/git
 COPY wait-for-it.sh /src/wait-for-it.sh
 COPY init.sh /src/init.sh
+COPY settings.ini /src/git/cobradb/settings.ini
 #RUN ["chmod", "+x", "/src/wait-for-it.sh"]
 #RUN ["chmod", "+x", "/src/init.sh"]
 #RUN ["chmod", "+x", "/src/git/cobradb/bin/load_db"]
