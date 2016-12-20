@@ -5,3 +5,6 @@
 	path = web/git/bigg_models_data
 	url = https://github.com/SBRG/bigg_models_data.git
 
+[submodule "mycdb"]
+	path = web/git/cobradb
+	url = https://github.com/SBRG/cobradb.git
