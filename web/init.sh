@@ -13,4 +13,4 @@ pg_restore -c -h db -p 5432 -d bigg -U zaking /src/database.dump
 
 echo SERVING YOLOSWAGZ RIGHT NOW
 
-cd /src/git/bigg_models && python -m bigg_models.server --port=8910
+cd /src/git/bigg_models && python -m bigg_models.server --port=8910 --processes=${PROCESSES}

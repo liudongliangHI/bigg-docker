@@ -22,6 +22,8 @@ services:
       - REPLICATION_SSLMODE=
   web:
     build: web
+    environment:
+      - PROCESSES=1
     entrypoint: ["/src/wait-for-it.sh", "db:5432", "-t", "120", "--", "/src/init.sh"]
     ports:
       - "8910:8910"
