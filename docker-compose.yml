@@ -20,13 +20,20 @@ services:
       - REPLICATION_USER=
       - REPLICATION_PASS=
       - REPLICATION_SSLMODE=
+    networks:
+      - docker_closed
   web:
     build: web
     environment:
-      - PROCESSES=1
+      - PROCESSES=6
     entrypoint: ["/src/wait-for-it.sh", "db:5432", "-t", "120", "--", "/src/init.sh"]
     ports:
       - "8910:8910"
     depends_on:
       - db
-   
+    networks:
+      - docker_closed
+      
+networks:
+  docker_closed:
+    driver: bridge
