@@ -5,7 +5,7 @@ services:
     #entrypoint: ["pg_restore", "-c", "-d", "bigg", "/src/bigg_database.dump"]
     #command: ["pg_restore", "-c", "-d", "bigg", "/src/bigg_database.dump"]
     ports:
-      - "5432:5432"
+      - "localhost:5432:5432"
     environment:
       - DEBUG=false
 
@@ -21,19 +21,21 @@ services:
       - REPLICATION_PASS=
       - REPLICATION_SSLMODE=
     networks:
-      - docker_closed
+      - isolated
   web:
     build: web
     environment:
       - PROCESSES=6
     entrypoint: ["/src/wait-for-it.sh", "db:5432", "-t", "120", "--", "/src/init.sh"]
     ports:
-      - "8910:8910"
+      - "localhost:8910:8910"
     depends_on:
       - db
     networks:
-      - docker_closed
+      - isolated
       
 networks:
-  docker_closed:
+  isolated:
     driver: bridge
+    driver_opts:
+      com.docker.network.bridge.enable_ip_masquerade: "false"
